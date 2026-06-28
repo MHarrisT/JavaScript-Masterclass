@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+</head>
+<body style="background-color: black; color: white">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>
+</body>
+<script>
+    // parent -> child
+    const parent = document.querySelector('.parent')
+    console.log(parent)
+    console.log(parent.children) // we get html collection
+    console.log(parent.children[2]) // we get whole div class line of wednesday
+    console.log(parent.children[3].innerHTML) // we get thursday only
+
+    for (let i=0; i<parent.children.length; i++){
+        console.log(parent.children[i].innerHTML) // gets all days of the week
+    }
+
+    parent.children[1].style.color = 'pink'
+    console.log(parent.firstElementChild)
+    console.log(parent.lastElementChild)
+
+    // child -> parent
+    const dayOne = document.querySelector('.day')
+    console.log(dayOne)
+    console.log(dayOne.parentElement) // returns whole div of class="parent"
+    console.log(dayOne.nextElementSibling) // sibling of child
+
+    console.log("Nodes: ", parent.childNodes) // complex tree structure, text(new line), div.day
+
+    // create a new element
+    const div = document.createElement('div')
+    console.log(div)
+    div.className="my-div"
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "any title")
+    div.style.backgroundColor = "purple"
+    div.style.borderRadius = "8px"
+    const mytext = document.createTextNode("JS tutorial 33")
+    div.appendChild(mytext)
+    document.body.appendChild(div)
+</script>
+</html>
