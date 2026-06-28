@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning - Last Part</title>
+</head>
+<body style="background-color: black; color: white">
+    <ul class="language">
+        <li>C++</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langname){
+        const li = document.createElement('li')
+        li.innerHTML = `${langname}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage('C')
+
+    function addOptiLanguage(langname){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addOptiLanguage('Js')
+
+    // Edit elements
+    const secondLang = document.querySelector("li:nth-child(1)")
+    //secondLang.innerHTML = "GOLang"
+    const newli = document.createElement('li')
+    newli.textContent = "GOLang"
+    secondLang.replaceWith(newli)
+
+    // Remove Element
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+
+</script>
+</html>
